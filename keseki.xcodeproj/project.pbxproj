@@ -6,20 +6,53 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		698470232E4620940021E9FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6984700D2E4620920021E9FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 698470142E4620920021E9FF;
+			remoteInfo = KeSeKi;
+		};
+		6984702D2E4620940021E9FF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6984700D2E4620920021E9FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 698470142E4620920021E9FF;
+			remoteInfo = KeSeKi;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		24B034EB2E462DE4004B175A /* keseki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keseki.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		698470152E4620920021E9FF /* KeSeKi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeSeKi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		698470222E4620940021E9FF /* KeSeKiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeSeKiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6984702C2E4620940021E9FF /* KeSeKiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeSeKiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		24B034ED2E462DE4004B175A /* keseki */ = {
+		698470172E4620920021E9FF /* KeSeKi */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = keseki;
+			path = KeSeKi;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		24B034E82E462DE4004B175A /* Frameworks */ = {
+		698470122E4620920021E9FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6984701F2E4620940021E9FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		698470292E4620940021E9FF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,18 +62,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		24B034E22E462DE4004B175A = {
+		6984700C2E4620920021E9FF = {
 			isa = PBXGroup;
 			children = (
-				24B034ED2E462DE4004B175A /* keseki */,
-				24B034EC2E462DE4004B175A /* Products */,
+				698470172E4620920021E9FF /* KeSeKi */,
+				698470162E4620920021E9FF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		24B034EC2E462DE4004B175A /* Products */ = {
+		698470162E4620920021E9FF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				24B034EB2E462DE4004B175A /* keseki.app */,
+				698470152E4620920021E9FF /* KeSeKi.app */,
+				698470222E4620940021E9FF /* KeSeKiTests.xctest */,
+				6984702C2E4620940021E9FF /* KeSeKiUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,64 +83,128 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		24B034EA2E462DE4004B175A /* keseki */ = {
+		698470142E4620920021E9FF /* KeSeKi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 24B034F62E462DE5004B175A /* Build configuration list for PBXNativeTarget "keseki" */;
+			buildConfigurationList = 698470362E4620940021E9FF /* Build configuration list for PBXNativeTarget "KeSeKi" */;
 			buildPhases = (
-				24B034E72E462DE4004B175A /* Sources */,
-				24B034E82E462DE4004B175A /* Frameworks */,
-				24B034E92E462DE4004B175A /* Resources */,
+				698470112E4620920021E9FF /* Sources */,
+				698470122E4620920021E9FF /* Frameworks */,
+				698470132E4620920021E9FF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				24B034ED2E462DE4004B175A /* keseki */,
+				698470172E4620920021E9FF /* KeSeKi */,
 			);
-			name = keseki;
+			name = KeSeKi;
 			packageProductDependencies = (
 			);
-			productName = keseki;
-			productReference = 24B034EB2E462DE4004B175A /* keseki.app */;
+			productName = KeSeKi;
+			productReference = 698470152E4620920021E9FF /* KeSeKi.app */;
 			productType = "com.apple.product-type.application";
+		};
+		698470212E4620940021E9FF /* KeSeKiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 698470392E4620940021E9FF /* Build configuration list for PBXNativeTarget "KeSeKiTests" */;
+			buildPhases = (
+				6984701E2E4620940021E9FF /* Sources */,
+				6984701F2E4620940021E9FF /* Frameworks */,
+				698470202E4620940021E9FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				698470242E4620940021E9FF /* PBXTargetDependency */,
+			);
+			name = KeSeKiTests;
+			packageProductDependencies = (
+			);
+			productName = KeSeKiTests;
+			productReference = 698470222E4620940021E9FF /* KeSeKiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6984702B2E4620940021E9FF /* KeSeKiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6984703C2E4620940021E9FF /* Build configuration list for PBXNativeTarget "KeSeKiUITests" */;
+			buildPhases = (
+				698470282E4620940021E9FF /* Sources */,
+				698470292E4620940021E9FF /* Frameworks */,
+				6984702A2E4620940021E9FF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6984702E2E4620940021E9FF /* PBXTargetDependency */,
+			);
+			name = KeSeKiUITests;
+			packageProductDependencies = (
+			);
+			productName = KeSeKiUITests;
+			productReference = 6984702C2E4620940021E9FF /* KeSeKiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		24B034E32E462DE4004B175A /* Project object */ = {
+		6984700D2E4620920021E9FF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2600;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
 				TargetAttributes = {
-					24B034EA2E462DE4004B175A = {
-						CreatedOnToolsVersion = 26.0;
+					698470142E4620920021E9FF = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					698470212E4620940021E9FF = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 698470142E4620920021E9FF;
+					};
+					6984702B2E4620940021E9FF = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 698470142E4620920021E9FF;
 					};
 				};
 			};
-			buildConfigurationList = 24B034E62E462DE4004B175A /* Build configuration list for PBXProject "keseki" */;
+			buildConfigurationList = 698470102E4620920021E9FF /* Build configuration list for PBXProject "KeSeKi" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 24B034E22E462DE4004B175A;
+			mainGroup = 6984700C2E4620920021E9FF;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 24B034EC2E462DE4004B175A /* Products */;
+			productRefGroup = 698470162E4620920021E9FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24B034EA2E462DE4004B175A /* keseki */,
+				698470142E4620920021E9FF /* KeSeKi */,
+				698470212E4620940021E9FF /* KeSeKiTests */,
+				6984702B2E4620940021E9FF /* KeSeKiUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		24B034E92E462DE4004B175A /* Resources */ = {
+		698470132E4620920021E9FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		698470202E4620940021E9FF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6984702A2E4620940021E9FF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -115,7 +214,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		24B034E72E462DE4004B175A /* Sources */ = {
+		698470112E4620920021E9FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6984701E2E4620940021E9FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		698470282E4620940021E9FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -124,8 +237,21 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		698470242E4620940021E9FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 698470142E4620920021E9FF /* KeSeKi */;
+			targetProxy = 698470232E4620940021E9FF /* PBXContainerItemProxy */;
+		};
+		6984702E2E4620940021E9FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 698470142E4620920021E9FF /* KeSeKi */;
+			targetProxy = 6984702D2E4620940021E9FF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		24B034F42E462DE5004B175A /* Debug */ = {
+		698470342E4620940021E9FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -160,7 +286,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = P26KYG6RH6;
+				DEVELOPMENT_TEAM = NBC28VW8Q2;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -178,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -189,7 +315,7 @@
 			};
 			name = Debug;
 		};
-		24B034F52E462DE5004B175A /* Release */ = {
+		698470352E4620940021E9FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -224,7 +350,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = P26KYG6RH6;
+				DEVELOPMENT_TEAM = NBC28VW8Q2;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -236,7 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -246,14 +372,14 @@
 			};
 			name = Release;
 		};
-		24B034F72E462DE5004B175A /* Debug */ = {
+		698470372E4620940021E9FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P26KYG6RH6;
+				DEVELOPMENT_TEAM = NBC28VW8Q2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -261,31 +387,27 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ada-4th-merge-conflicts.keseki";
+				PRODUCT_BUNDLE_IDENTIFIER = HappyJay.KeSeKi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		24B034F82E462DE5004B175A /* Release */ = {
+		698470382E4620940021E9FF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = P26KYG6RH6;
+				DEVELOPMENT_TEAM = NBC28VW8Q2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -293,45 +415,131 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "ada-4th-merge-conflicts.keseki";
+				PRODUCT_BUNDLE_IDENTIFIER = HappyJay.KeSeKi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6984703A2E4620940021E9FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NBC28VW8Q2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HappyJay.KeSeKiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeSeKi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KeSeKi";
+			};
+			name = Debug;
+		};
+		6984703B2E4620940021E9FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NBC28VW8Q2;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HappyJay.KeSeKiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KeSeKi.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/KeSeKi";
+			};
+			name = Release;
+		};
+		6984703D2E4620940021E9FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NBC28VW8Q2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HappyJay.KeSeKiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeSeKi;
+			};
+			name = Debug;
+		};
+		6984703E2E4620940021E9FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = NBC28VW8Q2;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = HappyJay.KeSeKiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KeSeKi;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		24B034E62E462DE4004B175A /* Build configuration list for PBXProject "keseki" */ = {
+		698470102E4620920021E9FF /* Build configuration list for PBXProject "KeSeKi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				24B034F42E462DE5004B175A /* Debug */,
-				24B034F52E462DE5004B175A /* Release */,
+				698470342E4620940021E9FF /* Debug */,
+				698470352E4620940021E9FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		24B034F62E462DE5004B175A /* Build configuration list for PBXNativeTarget "keseki" */ = {
+		698470362E4620940021E9FF /* Build configuration list for PBXNativeTarget "KeSeKi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				24B034F72E462DE5004B175A /* Debug */,
-				24B034F82E462DE5004B175A /* Release */,
+				698470372E4620940021E9FF /* Debug */,
+				698470382E4620940021E9FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		698470392E4620940021E9FF /* Build configuration list for PBXNativeTarget "KeSeKiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6984703A2E4620940021E9FF /* Debug */,
+				6984703B2E4620940021E9FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6984703C2E4620940021E9FF /* Build configuration list for PBXNativeTarget "KeSeKiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6984703D2E4620940021E9FF /* Debug */,
+				6984703E2E4620940021E9FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 24B034E32E462DE4004B175A /* Project object */;
+	rootObject = 6984700D2E4620920021E9FF /* Project object */;
 }

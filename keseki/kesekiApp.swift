@@ -1,17 +1,17 @@
 //
-//  kesekiApp.swift
-//  keseki
+//  KeSeKiApp.swift
+//  KeSeKi
 //
-//  Created by Nell on 8/8/25.
+//  Created by Jay on 8/8/25.
 //
 
 import SwiftUI
 
 @main
-struct kesekiApp: App {
+struct KeSeKiApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AlarmView()
         }
     }
 }
