@@ -14,7 +14,7 @@ struct KeSeKiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: homeViewModel)
+            ScreenControlView(viewModel: homeViewModel)
                 .onChange(of: scenePhase) { oldPhase, newPhase in
                     homeViewModel.onScenePhaseChanged(newPhase)
                 }
