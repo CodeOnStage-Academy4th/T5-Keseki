@@ -60,7 +60,6 @@ final class AlarmService {
                 player = try AVAudioPlayer(contentsOf: url)
                 player?.numberOfLoops = -1  // 무한 반복
                 player?.volume = Config.alertStepVolumes[currentIndex]
-
                 player?.play()
                 isRinging = true
             } catch {

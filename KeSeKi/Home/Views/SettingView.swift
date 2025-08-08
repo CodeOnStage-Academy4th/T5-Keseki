@@ -35,7 +35,8 @@ struct SettingView: View {
         NavigationView {
             VStack(spacing: 0) {
                 // Hidden NavigationLink for DevView navigation
-                NavigationLink(destination: DevView(), isActive: $navigateToDev) {
+                NavigationLink(destination: DevView(), isActive: $navigateToDev)
+                {
                     EmptyView()
                 }
                 .hidden()
@@ -62,9 +63,13 @@ struct SettingView: View {
                             if let fire = fireDate {
                                 HStack(spacing: 6) {
                                     Image(systemName: "bell.fill")
-                                        .font(.system(size: 14, weight: .regular))
+                                        .font(
+                                            .system(size: 14, weight: .regular)
+                                        )
                                     Text(fire, style: .time)  // 지역 설정 따라 07:00처럼 노출
-                                        .font(.system(size: 20, weight: .regular))
+                                        .font(
+                                            .system(size: 20, weight: .regular)
+                                        )
                                 }
                             }
                             // 남은 시간 08:34:56
@@ -161,7 +166,10 @@ struct SettingView: View {
                         animateBrightness(to: 0.0, duration: 0.25)
                     }
                     dimWorkItem = work
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: work)
+                    DispatchQueue.main.asyncAfter(
+                        deadline: .now() + 1,
+                        execute: work
+                    )
                 } else {
                     // cancel pending dim and restore immediately (animated)
                     dimWorkItem?.cancel()
@@ -173,7 +181,8 @@ struct SettingView: View {
                 }
             }
             .onDisappear {
-                dimWorkItem?.cancel(); dimWorkItem = nil
+                dimWorkItem?.cancel()
+                dimWorkItem = nil
                 UIApplication.shared.isIdleTimerDisabled = false
                 if let prev = previousBrightness {
                     UIScreen.main.brightness = prev
@@ -182,28 +191,34 @@ struct SettingView: View {
             }
         }
     }
-// 08:34:56 형식
-private func formatHMS(_ t: TimeInterval) -> String {
-    let s = Int(max(0, t))
-    let h = s / 3600
-    let m = (s % 3600) / 60
-    let sec = s % 60
-    return String(format: "%02d:%02d:%02d", h, m, sec)
-}
-
-// 부드러운 밝기 전환
-private func animateBrightness(to target: CGFloat, duration: TimeInterval) {
-    let start = UIScreen.main.brightness
-    guard duration > 0 else { UIScreen.main.brightness = target; return }
-    let startDate = Date()
-    let timer = Timer.scheduledTimer(withTimeInterval: 1.0/60.0, repeats: true) { t in
-        let elapsed = Date().timeIntervalSince(startDate)
-        let pct = min(1, elapsed / duration)
-        UIScreen.main.brightness = start + (target - start) * CGFloat(pct)
-        if pct >= 1 { t.invalidate() }
+    // 08:34:56 형식
+    private func formatHMS(_ t: TimeInterval) -> String {
+        let s = Int(max(0, t))
+        let h = s / 3600
+        let m = (s % 3600) / 60
+        let sec = s % 60
+        return String(format: "%02d:%02d:%02d", h, m, sec)
     }
-    RunLoop.main.add(timer, forMode: .common)
-}
+
+    // 부드러운 밝기 전환
+    private func animateBrightness(to target: CGFloat, duration: TimeInterval) {
+        let start = UIScreen.main.brightness
+        guard duration > 0 else {
+            UIScreen.main.brightness = target
+            return
+        }
+        let startDate = Date()
+        let timer = Timer.scheduledTimer(
+            withTimeInterval: 1.0 / 60.0,
+            repeats: true
+        ) { t in
+            let elapsed = Date().timeIntervalSince(startDate)
+            let pct = min(1, elapsed / duration)
+            UIScreen.main.brightness = start + (target - start) * CGFloat(pct)
+            if pct >= 1 { t.invalidate() }
+        }
+        RunLoop.main.add(timer, forMode: .common)
+    }
 }
 
 #Preview {

@@ -45,9 +45,8 @@ final class HomeViewModel {
             self.dogState = dogState
         }
     }
-
+    
     func cancelAlarm() {
-        state = .wake
         stopRecording()
         alarmManager.cancel()
         isRecording = false
@@ -87,10 +86,10 @@ final class HomeViewModel {
                 print("데시벨 측정 중 : \(db)(\(sec)s)")
             },
             onUnlocked: { [weak self] in
-                // TODO: 알람 해제하기 기능 추가
                 print("데시벨 성공! 알람 해제!")
                 guard let self else { return }
                 self.cancelAlarm()
+                self.state = .wake
             },
             onError: { [weak self] err in
                 guard let self else { return }
