@@ -28,6 +28,7 @@ final class HomeViewModel {
     var currentDB: Float = -60
     var sustained: TimeInterval = 0
     var isRecording = false
+    var isAlaram = false
     var errorMessage: String?
 
     init(state: HomeViewState = .setting) {
@@ -45,12 +46,14 @@ final class HomeViewModel {
             self.state = .alert
             self.dogState = dogState
         }
+        isAlaram = true
     }
     
     func cancelAlarm() {
         stopRecording()
         alarmManager.cancel()
         isRecording = false
+        isAlaram = false
     }
 
     func onScenePhaseChanged(_ phase: ScenePhase) {
@@ -59,7 +62,10 @@ final class HomeViewModel {
             lockNotificationManager.stopAlarmSound()
         } else if phase == .background {
             print("백그라운드 - 사운드 재생")
-            lockNotificationManager.playAlarmSound()
+            if isAlaram && state == .setting {
+                lockNotificationManager.scheduleLocalNotification()
+                lockNotificationManager.playAlarmSound()
+            }
         }
     }
 
