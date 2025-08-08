@@ -10,24 +10,13 @@ import SwiftUI
 
 enum HomeViewState {
     case setting
-    case ready
     case alert
-
-    func nextState() -> HomeViewState {
-        switch self {
-        case .setting:
-            return .ready
-        case .ready:
-            return .alert
-        case .alert:
-            return .setting
-        }
-    }
+    case wake
 }
 
 @Observable
 final class HomeViewModel {
-    private(set) var state: HomeViewState
+    var state: HomeViewState
     private let decibelManager = DecibelManagerImpl()
     private let lockNotificationManager = LockNotificationManager()
     private let alarmManager = AlarmService()
@@ -38,7 +27,6 @@ final class HomeViewModel {
     var currentDB: Float = -60
     var sustained: TimeInterval = 0
     var isRecording = false
-    var unlocked = false
     var errorMessage: String?
 
     init(state: HomeViewState = .setting) {
@@ -56,23 +44,14 @@ final class HomeViewModel {
             self.startRecording()
             self.state = .alert
             self.dogState = dogState
-            if dogState == .step4 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-                    self.alarmManager.cancel()
-                    self.state = .setting
-                    self.stopRecording()
-                }
-            }
         }
-        state = .ready
     }
 
     func cancelAlarm() {
+        state = .wake
+        stopRecording()
         alarmManager.cancel()
-    }
-
-    func next() {
-        state = state.nextState()
+        isRecording = false
     }
 
     func onScenePhaseChanged(_ phase: ScenePhase) {
@@ -112,10 +91,7 @@ final class HomeViewModel {
                 // TODO: 알람 해제하기 기능 추가
                 print("데시벨 성공! 알람 해제!")
                 guard let self else { return }
-                self.stopRecording()
                 self.cancelAlarm()
-                self.unlocked = true
-                self.isRecording = false
             },
             onError: { [weak self] err in
                 guard let self else { return }

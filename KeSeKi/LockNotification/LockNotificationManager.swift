@@ -101,7 +101,7 @@ final class LockNotificationManager: ObservableObject {
 
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
-            audioPlayer?.numberOfLoops = -1  // 한 번 재생
+            audioPlayer?.numberOfLoops = -1
             audioPlayer?.play()
 
         } catch {

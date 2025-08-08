@@ -19,23 +19,26 @@ struct HomeView: View {
             switch viewModel.state {
             case .setting:
                 SettingView(viewModel)
-            case .ready:
-                ReadyView(viewModel)
             case .alert:
                 AlertView(
                     viewModel,
                     date: viewModel.date,
                     dogState: viewModel.dogState
                 )
+            case .wake:
+                WakeView(viewModel)
             }
         }
         .onAppear {
             viewModel.askMicPermission()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                viewModel.state = .setting
+            }
         }
     }
 }
 
 #Preview {
-    let viewModel = HomeViewModel(state: .ready)
+    let viewModel = HomeViewModel(state: .wake)
     HomeView(viewModel: viewModel)
 }

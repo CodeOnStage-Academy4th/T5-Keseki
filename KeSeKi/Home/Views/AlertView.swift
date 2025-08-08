@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum DogState: CaseIterable { case step1, step2, step3, step4 }
+enum DogState: CaseIterable { case step1, step2, step3 }
 
 struct AlertView: View {
     let date: Date
@@ -25,7 +25,6 @@ struct AlertView: View {
         case .step1: return "Step1Background"
         case .step2: return "Step2Background"   // 폭우 배경
         case .step3: return "Step3Background"
-        case .step4: return "Step4Background"
         }
     }
     private var dogImage: String {
@@ -33,7 +32,6 @@ struct AlertView: View {
         case .step1: return "Step1Dog"
         case .step2: return "Step2Dog"  // 으르렁 치와와
         case .step3: return "Step3Dog"
-        case .step4: return "Step4Dog"
         }
     }
     

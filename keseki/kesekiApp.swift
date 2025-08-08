@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct Config {
-    static let shoutingDecibel: Float = -20
+    static let shoutingDecibel: Float = -10
     static let shoutingDuration: Double = 1
-    static let alertStepInterval: Double = 5
+    static let alertStepInterval: Double = 2
 }
 
 @main

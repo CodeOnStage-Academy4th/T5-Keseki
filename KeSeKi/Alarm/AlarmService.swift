@@ -10,6 +10,7 @@ import AVFAudio
 final class AlarmService {
     var isRinging = false
     private var timer: Timer?
+    private var changeTimer: Timer?
     private var player: AVAudioPlayer?
 
     func schedule(date: Date, onStart: @escaping (DogState) -> Void) {
@@ -26,8 +27,11 @@ final class AlarmService {
     }
 
     func cancel() {
+        changeTimer?.invalidate()
         timer?.invalidate()
+        changeTimer = nil
         timer = nil
+        
         stopRinging()
     }
 
@@ -38,7 +42,7 @@ final class AlarmService {
     }
 
     private func startRinging(_ onStart: @escaping (DogState) -> Void) {
-        let sounds = ["dog1", "dog2", "dog3", "dog4"]
+        let sounds = ["dog1", "dog2", "dog3"]
         var currentIndex = 0
         
         func playSound(named name: String) {
@@ -66,20 +70,18 @@ final class AlarmService {
         playSound(named: sounds[currentIndex])
 
         // 10초마다 다음 음원으로 변경
-        var changeTimer: Timer?
-        changeTimer = Timer.scheduledTimer(
+        self.changeTimer = Timer.scheduledTimer(
             withTimeInterval: Config.alertStepInterval,
             repeats: true
-        ) { [weak self] _ in
-            guard let self = self else { return }
+        ) { _ in
             currentIndex += 1
             if currentIndex < sounds.count {
                 onStart(DogState.allCases[currentIndex])
                 playSound(named: sounds[currentIndex])
             }
             if currentIndex >= sounds.count - 1 {
-                changeTimer?.invalidate()
-                changeTimer = nil
+                self.changeTimer?.invalidate()
+                self.changeTimer = nil
             }
         }
         RunLoop.main.add(changeTimer!, forMode: .common)
