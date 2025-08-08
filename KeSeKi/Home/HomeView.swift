@@ -22,7 +22,7 @@ struct HomeView: View {
             case .ready:
                 ReadyView(viewModel)
             case .alert:
-                AlertView(viewModel)
+                AlertView(viewModel, date: Date(), dogState: .step1)
             }
         }
         .onAppear {
