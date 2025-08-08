@@ -35,9 +35,8 @@ final class HomeViewModel {
         self.dogState = .step1
         self.configureAudioSession()
     }
-
-    func setAlarm(date: Date? = nil) {
-        self.date = date ?? Date().addingTimeInterval(3)
+    
+    func setAlarm() {
         print("알람 예약 : \(self.date)")
         alarmManager.schedule(date: self.date) { dogState in
             print("알람 시작")

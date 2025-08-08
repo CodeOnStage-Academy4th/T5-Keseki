@@ -39,6 +39,6 @@ struct HomeView: View {
 }
 
 #Preview {
-    let viewModel = HomeViewModel(state: .wake)
+    let viewModel = HomeViewModel(state: .setting)
     HomeView(viewModel: viewModel)
 }
