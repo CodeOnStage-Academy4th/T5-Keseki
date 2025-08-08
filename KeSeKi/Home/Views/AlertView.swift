@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 enum DogState: CaseIterable { case step1, step2, step3, step4 }
 
@@ -83,6 +84,8 @@ struct AlertView: View {
             }
             .frame(maxWidth: .infinity)
         }
+        .onAppear { UIApplication.shared.isIdleTimerDisabled = true }
+        .onDisappear { UIApplication.shared.isIdleTimerDisabled = false }
     }
 }
 

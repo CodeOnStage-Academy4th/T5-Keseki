@@ -9,19 +9,7 @@ import SwiftUI
 
 enum HomeViewState {
     case setting
-    case ready
     case alert
-
-    func nextState() -> HomeViewState {
-        switch self {
-        case .setting:
-            return .ready
-        case .ready:
-            return .alert
-        case .alert:
-            return .setting
-        }
-    }
 }
 
 @Observable
@@ -46,8 +34,7 @@ final class HomeViewModel {
         self.dogState = .step1
     }
     
-    func setAlarm(date: Date? = nil) {
-        self.date = date ?? Date().addingTimeInterval(3)
+    func setAlarm() {
         print("알람 예약 : \(self.date)")
         alarmManager.schedule(date: self.date) { dogState in
             print("알람 시작")
@@ -55,16 +42,12 @@ final class HomeViewModel {
             self.state = .alert
             self.dogState = dogState
         }
-        state = .ready
     }
     
     func cancelAlarm() {
         alarmManager.cancel()
     }
     
-    func next() {
-        state = state.nextState()
-    }
 
     func onScenePhaseChanged(_ phase: ScenePhase) {
         if phase == .active {

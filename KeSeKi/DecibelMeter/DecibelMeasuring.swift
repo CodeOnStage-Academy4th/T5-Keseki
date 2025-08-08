@@ -46,7 +46,7 @@ final class DecibelMeasuringImpl: DecibelMeasuring {
             
             let session = AVAudioSession.sharedInstance()
             do {
-                try session.setCategory(.playAndRecord, options: [.defaultToSpeaker, .mixWithOthers, .allowBluetoothHFP])
+                try session.setCategory(.playAndRecord, options: [.defaultToSpeaker, .mixWithOthers, .allowBluetooth])
                 try session.setMode(.voiceChat) // ✅ AEC/NS/AGC로 자기소리 영향 줄이기
                 try session.setActive(true)
             } catch { return onError(DecibelEngineError.audioSessionFailed(error)) }

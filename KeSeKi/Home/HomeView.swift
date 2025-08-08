@@ -19,8 +19,7 @@ struct HomeView: View {
             switch viewModel.state {
             case .setting:
                 SettingView(viewModel)
-            case .ready:
-                ReadyView(viewModel)
+        
             case .alert:
                 AlertView(
                     viewModel,
@@ -36,6 +35,6 @@ struct HomeView: View {
 }
 
 #Preview {
-    let viewModel = HomeViewModel(state: .ready)
+    let viewModel = HomeViewModel(state: .setting)
     HomeView(viewModel: viewModel)
 }
