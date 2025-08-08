@@ -43,14 +43,6 @@ final class DecibelMeasuringImpl: DecibelMeasuring {
                onError: @escaping (Error) -> Void) {
         Self.requestMicPermission { granted in
             guard granted else { return onError(DecibelEngineError.micPermissionDenied) }
-            
-            let session = AVAudioSession.sharedInstance()
-            do {
-                try session.setCategory(.playAndRecord, options: [.defaultToSpeaker, .mixWithOthers, .allowBluetoothHFP])
-                try session.setMode(.voiceChat) // ✅ AEC/NS/AGC로 자기소리 영향 줄이기
-                try session.setActive(true)
-            } catch { return onError(DecibelEngineError.audioSessionFailed(error)) }
-            
             // 파일은 /tmp에 버림(실제 저장 안 씀)
             let url = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("meter.caf")
             let settings: [String: Any] = [

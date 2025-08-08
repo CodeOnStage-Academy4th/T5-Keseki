@@ -100,17 +100,6 @@ final class LockNotificationManager: ObservableObject {
         }
 
         do {
-            try AVAudioSession.sharedInstance().setCategory(
-                .playback,
-                mode: .default,
-                options: []
-            )
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("AVAudioSession 설정 실패: \(error.localizedDescription)")
-        }
-
-        do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.numberOfLoops = -1  // 한 번 재생
             audioPlayer?.play()

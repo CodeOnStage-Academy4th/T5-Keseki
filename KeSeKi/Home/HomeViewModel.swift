@@ -5,6 +5,7 @@
 //  Created by Nell on 8/9/25.
 //
 
+import AVFAudio
 import SwiftUI
 
 enum HomeViewState {
@@ -44,6 +45,7 @@ final class HomeViewModel {
         self.state = state
         self.date = Date()
         self.dogState = .step1
+        self.configureAudioSession()
     }
 
     func setAlarm(date: Date? = nil) {
@@ -127,5 +129,19 @@ final class HomeViewModel {
         decibelManager.stop()
         isRecording = false
         sustained = 0
+    }
+
+    func configureAudioSession() {
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(
+                .playAndRecord,  // Mic + Playback
+                mode: .default,
+                options: [.defaultToSpeaker, .mixWithOthers]  // Duck 방지
+            )
+            try session.setActive(true)
+        } catch {
+            print("⚠️ Failed to set audio session: \(error)")
+        }
     }
 }
