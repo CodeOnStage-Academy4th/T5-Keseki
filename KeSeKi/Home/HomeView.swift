@@ -17,16 +17,21 @@ struct HomeView: View {
     var body: some View {
         VStack {
             switch viewModel.state {
-            case .alaramSetting:
-                AlarmSettingView(viewModel)
-            case .settingComplete:
-                SettingCompleteView(viewModel)
+            case .setting:
+                SettingView(viewModel)
+            case .ready:
+                ReadyView(viewModel)
+            case .alert:
+                AlertView(viewModel)
             }
+        }
+        .onAppear {
+            viewModel.askMicPermission()
         }
     }
 }
 
 #Preview {
-    let viewModel = HomeViewModel()
+    let viewModel = HomeViewModel(state: .alert)
     HomeView(viewModel: viewModel)
 }

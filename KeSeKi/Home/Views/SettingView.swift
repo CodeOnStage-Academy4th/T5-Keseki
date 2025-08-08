@@ -1,14 +1,13 @@
 //
-//  SettingCompleteView.swift
-//  keseki
+//  AlarmSettingView.swift
+//  KeSeKi
 //
 //  Created by Nell on 8/9/25.
 //
 
 import SwiftUI
 
-struct SettingCompleteView: View {
-    
+struct SettingView: View {
     var homeViewModel: HomeViewModel
     
     init(_ homeViewModel: HomeViewModel) {
@@ -18,7 +17,7 @@ struct SettingCompleteView: View {
     var body: some View {
         VStack {
             Button(action: homeViewModel.next) {
-                Text("알람 세팅 완료 뷰")
+                Text("알람세팅뷰")
             }
         }
     }
@@ -26,5 +25,5 @@ struct SettingCompleteView: View {
 
 #Preview {
     let viewModel = HomeViewModel()
-    SettingCompleteView(viewModel)
+    SettingView(viewModel)
 }
