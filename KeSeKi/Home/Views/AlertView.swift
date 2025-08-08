@@ -1,5 +1,5 @@
 //
-//  DogAlarmView.swift
+//  AlarmView.swift
 //  KeSeKi
 //
 //  Created by 10100 on 8/9/25.
@@ -7,11 +7,18 @@
 
 import SwiftUI
 
-enum DogState { case step1, step2, step3, step4 }
+enum DogState: CaseIterable { case step1, step2, step3, step4 }
 
-struct DogAlarmView: View {
+struct AlertView: View {
     let date: Date
     let dogState: DogState
+    var viewModel: HomeViewModel
+    
+    init(_ viewModel: HomeViewModel, date: Date, dogState: DogState) {
+        self.date = date
+        self.dogState = dogState
+        self.viewModel = viewModel
+    }
     
     private var backgroundImage: String {
         switch dogState {
@@ -27,7 +34,6 @@ struct DogAlarmView: View {
         case .step2: return "Step2Dog"  // 으르렁 치와와
         case .step3: return "Step3Dog"
         case .step4: return "Step4Dog"
-            
         }
     }
     
@@ -90,7 +96,6 @@ private extension DateFormatter {
 }
 
 #Preview {
-    DogAlarmView(date: .now, dogState: .step2)
+    AlertView(HomeViewModel(), date: .now, dogState: .step2)
 }
-
 

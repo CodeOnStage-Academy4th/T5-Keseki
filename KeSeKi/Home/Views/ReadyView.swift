@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-struct SettingCompleteView: View {
-    
+struct ReadyView: View {
     var homeViewModel: HomeViewModel
     
     init(_ homeViewModel: HomeViewModel) {
@@ -26,5 +25,5 @@ struct SettingCompleteView: View {
 
 #Preview {
     let viewModel = HomeViewModel()
-    SettingCompleteView(viewModel)
+    ReadyView(viewModel)
 }
