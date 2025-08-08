@@ -5,33 +5,35 @@
 //  Created by Nell on 8/9/25.
 //
 
+import AVFAudio
 import SwiftUI
 
 enum HomeViewState {
     case setting
     case alert
+    case wake
 }
 
 @Observable
 final class HomeViewModel {
-    private(set) var state: HomeViewState
+    var state: HomeViewState
     private let decibelManager = DecibelManagerImpl()
     private let lockNotificationManager = LockNotificationManager()
     private let alarmManager = AlarmService()
     var date: Date
     var dogState: DogState
-    
+
     /// Decibel
     var currentDB: Float = -60
     var sustained: TimeInterval = 0
     var isRecording = false
-    var unlocked = false
     var errorMessage: String?
 
     init(state: HomeViewState = .setting) {
         self.state = state
         self.date = Date()
         self.dogState = .step1
+        self.configureAudioSession()
     }
     
     func setAlarm() {
@@ -43,11 +45,13 @@ final class HomeViewModel {
             self.dogState = dogState
         }
     }
-    
+
     func cancelAlarm() {
+        state = .wake
+        stopRecording()
         alarmManager.cancel()
+        isRecording = false
     }
-    
 
     func onScenePhaseChanged(_ phase: ScenePhase) {
         if phase == .active {
@@ -58,7 +62,7 @@ final class HomeViewModel {
             lockNotificationManager.playAlarmSound()
         }
     }
-    
+
     func askMicPermission() {
         decibelManager.requestPermission { [weak self] ok in
             guard let self else { return }
@@ -66,7 +70,10 @@ final class HomeViewModel {
         }
     }
 
-    func startRecording(threshold: Float = -20, required: TimeInterval = 2.0) {
+    func startRecording(
+        threshold: Float = Config.shoutingDecibel,
+        required: TimeInterval = Config.shoutingDuration
+    ) {
         guard !isRecording else { return }
         isRecording = true
 
@@ -84,8 +91,6 @@ final class HomeViewModel {
                 print("데시벨 성공! 알람 해제!")
                 guard let self else { return }
                 self.cancelAlarm()
-                self.unlocked = true
-                self.isRecording = false
             },
             onError: { [weak self] err in
                 guard let self else { return }
@@ -99,5 +104,19 @@ final class HomeViewModel {
         decibelManager.stop()
         isRecording = false
         sustained = 0
+    }
+
+    func configureAudioSession() {
+        let session = AVAudioSession.sharedInstance()
+        do {
+            try session.setCategory(
+                .playAndRecord,  // Mic + Playback
+                mode: .default,
+                options: [.defaultToSpeaker, .mixWithOthers]  // Duck 방지
+            )
+            try session.setActive(true)
+        } catch {
+            print("⚠️ Failed to set audio session: \(error)")
+        }
     }
 }

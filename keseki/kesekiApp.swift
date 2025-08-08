@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+struct Config {
+    static var shoutingDecibel: Float = -10
+    static let shoutingDuration: Double = 1
+    static let alertStepInterval: Double = 3
+    static let alertStepVolumes: [Float] = [0.3, 0.6, 1.0]
+}
+
 @main
 struct KeSeKiApp: App {
     let homeViewModel: HomeViewModel = .init()

@@ -10,6 +10,7 @@ import AVFAudio
 final class AlarmService {
     var isRinging = false
     private var timer: Timer?
+    private var changeTimer: Timer?
     private var player: AVAudioPlayer?
 
     func schedule(date: Date, onStart: @escaping (DogState) -> Void) {
@@ -19,15 +20,18 @@ final class AlarmService {
         // 간단하게 Timer로 대기 (앱이 포그라운드일 때만 신뢰)
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: false)
         { [weak self] _ in
-            
+
             self?.startRinging(onStart)
         }
         RunLoop.main.add(timer!, forMode: .common)
     }
 
     func cancel() {
+        changeTimer?.invalidate()
         timer?.invalidate()
+        changeTimer = nil
         timer = nil
+
         stopRinging()
     }
 
@@ -38,10 +42,11 @@ final class AlarmService {
     }
 
     private func startRinging(_ onStart: @escaping (DogState) -> Void) {
-        let sounds = ["dog1", "dog2", "dog3", "dog4"]
+        let sounds = ["dog1", "dog2", "dog3"]
         var currentIndex = 0
-        
+
         func playSound(named name: String) {
+            print("play : \(name)")
             guard
                 let url = Bundle.main.url(
                     forResource: name,
@@ -54,6 +59,8 @@ final class AlarmService {
             do {
                 player = try AVAudioPlayer(contentsOf: url)
                 player?.numberOfLoops = -1  // 무한 반복
+                player?.volume = Config.alertStepVolumes[currentIndex]
+
                 player?.play()
                 isRinging = true
             } catch {
@@ -65,20 +72,18 @@ final class AlarmService {
         playSound(named: sounds[currentIndex])
 
         // 10초마다 다음 음원으로 변경
-        var changeTimer: Timer?
-        changeTimer = Timer.scheduledTimer(
-            withTimeInterval: 2.0,
+        self.changeTimer = Timer.scheduledTimer(
+            withTimeInterval: Config.alertStepInterval,
             repeats: true
-        ) { [weak self] _ in
-            guard let self = self else { return }
+        ) { _ in
             currentIndex += 1
             if currentIndex < sounds.count {
                 onStart(DogState.allCases[currentIndex])
                 playSound(named: sounds[currentIndex])
             }
             if currentIndex >= sounds.count - 1 {
-                changeTimer?.invalidate()
-                changeTimer = nil
+                self.changeTimer?.invalidate()
+                self.changeTimer = nil
             }
         }
         RunLoop.main.add(changeTimer!, forMode: .common)
@@ -101,3 +106,4 @@ final class AlarmService {
         return Calendar.current.date(byAdding: .day, value: 1, to: today)!
     }
 }
+
