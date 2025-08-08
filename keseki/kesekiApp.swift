@@ -11,6 +11,7 @@ struct Config {
     static let shoutingDecibel: Float = -10
     static let shoutingDuration: Double = 1
     static let alertStepInterval: Double = 2
+    static let alertStepVolumes: [Float] = [0.3, 0.6, 1.0]
 }
 
 @main

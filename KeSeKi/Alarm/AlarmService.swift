@@ -20,7 +20,7 @@ final class AlarmService {
         // 간단하게 Timer로 대기 (앱이 포그라운드일 때만 신뢰)
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: false)
         { [weak self] _ in
-            
+
             self?.startRinging(onStart)
         }
         RunLoop.main.add(timer!, forMode: .common)
@@ -31,7 +31,7 @@ final class AlarmService {
         timer?.invalidate()
         changeTimer = nil
         timer = nil
-        
+
         stopRinging()
     }
 
@@ -44,7 +44,7 @@ final class AlarmService {
     private func startRinging(_ onStart: @escaping (DogState) -> Void) {
         let sounds = ["dog1", "dog2", "dog3"]
         var currentIndex = 0
-        
+
         func playSound(named name: String) {
             print("play : \(name)")
             guard
@@ -59,6 +59,8 @@ final class AlarmService {
             do {
                 player = try AVAudioPlayer(contentsOf: url)
                 player?.numberOfLoops = -1  // 무한 반복
+                player?.volume = Config.alertStepVolumes[currentIndex]
+
                 player?.play()
                 isRinging = true
             } catch {
@@ -104,3 +106,4 @@ final class AlarmService {
         return Calendar.current.date(byAdding: .day, value: 1, to: today)!
     }
 }
+
