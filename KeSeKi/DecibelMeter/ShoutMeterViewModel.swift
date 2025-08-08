@@ -14,24 +14,24 @@ final class ShoutMeterViewModel: ObservableObject {
     @Published var isMeasuring = false
     @Published var unlocked = false
     @Published var errorMessage: String?
-
+    
     private let decibel: DecibelManaging
-
+    
     init(decibel: DecibelManaging = DecibelManager()) {
         self.decibel = decibel
     }
-
+    
     func askPermission() {
         decibel.requestPermission { [weak self] ok in
             guard let self else { return }
             if !ok { self.errorMessage = "마이크 권한이 필요합니다." }
         }
     }
-
+    
     func start(threshold: Float = -10, required: TimeInterval = 2.0) {
         guard !isMeasuring else { return }
         isMeasuring = true
-
+        
         decibel.start(thresholdDB: threshold, requiredSeconds: required,
                       onTick: { [weak self] db, sec in
             guard let self else { return }
@@ -47,7 +47,7 @@ final class ShoutMeterViewModel: ObservableObject {
             self.isMeasuring = false
         })
     }
-
+    
     func stop() {
         decibel.stop()
         isMeasuring = false
