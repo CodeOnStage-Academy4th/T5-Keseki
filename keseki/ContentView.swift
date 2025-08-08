@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    @StateObject private var lockManager = LockNotificationManager()
+    @Environment(\.scenePhase) private var scenePhase
 
-#Preview {
-    ContentView()
+    var body: some View {
+        Text("SwiftUI 잠금 감지 데모")
+            .padding()
+            .onChange(of: scenePhase) { oldPhase, newPhase in
+                if newPhase == .active {
+                    print("앱이 활성화됨 - 사운드 중지")
+                    lockManager.stopAlarmSound()
+                } else if newPhase == .background {
+                    print("백그라운드 - 사운드 재생")
+                    lockManager.playAlarmSound()
+                }
+            }
+    }
 }
