@@ -168,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 698470102E4620920021E9FF /* Build configuration list for PBXProject "KeSeKi" */;
+			buildConfigurationList = 698470102E4620920021E9FF /* Build configuration list for PBXProject "keseki" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -382,6 +382,7 @@
 				DEVELOPMENT_TEAM = NBC28VW8Q2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 권한 요청";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -410,6 +411,7 @@
 				DEVELOPMENT_TEAM = NBC28VW8Q2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 권한 요청";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -503,7 +505,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		698470102E4620920021E9FF /* Build configuration list for PBXProject "KeSeKi" */ = {
+		698470102E4620920021E9FF /* Build configuration list for PBXProject "keseki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				698470342E4620940021E9FF /* Debug */,
