@@ -1,7 +1,7 @@
 import AVFAudio
 
 @MainActor
-final class SimpleAlarmManager: ObservableObject {
+final class AlarmManager: ObservableObject {
     @Published var selectedDate: Date = .init()
     @Published var isRinging = false
 
@@ -35,8 +35,7 @@ final class SimpleAlarmManager: ObservableObject {
 
     private func startRinging() {
         // 알람 소리 반복 재생
-        guard let url = Bundle.main.url(forResource: "dog-bark-sound", withExtension: "caf") ??
-                        Bundle.main.url(forResource: "dog-bark-sound", withExtension: "mp3") else {
+        guard let url = Bundle.main.url(forResource: "dog-bark-sound", withExtension: "mp3") else {
             print("⚠️ alarm sound not found in bundle")
             return
         }
@@ -50,7 +49,7 @@ final class SimpleAlarmManager: ObservableObject {
         }
     }
 
-    private func nextFireDate(from base: Date) -> Date {
+    func nextFireDate(from base: Date) -> Date {
         // “오늘의 시/분”이 이미 지났으면 내일, 아니면 오늘
         var comps = Calendar.current.dateComponents([.hour, .minute], from: base)
         comps.second = 0

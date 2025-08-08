@@ -168,7 +168,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 698470102E4620920021E9FF /* Build configuration list for PBXProject "KeSeKi" */;
+			buildConfigurationList = 698470102E4620920021E9FF /* Build configuration list for PBXProject "keseki" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -503,7 +503,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		698470102E4620920021E9FF /* Build configuration list for PBXProject "KeSeKi" */ = {
+		698470102E4620920021E9FF /* Build configuration list for PBXProject "keseki" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				698470342E4620940021E9FF /* Debug */,
