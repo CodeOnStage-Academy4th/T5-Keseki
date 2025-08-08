@@ -20,6 +20,7 @@ final class HomeViewModel {
     private let decibelManager = DecibelManagerImpl()
     private let lockNotificationManager = LockNotificationManager()
     private let alarmManager = AlarmService()
+    var initBrightness: CGFloat = UIScreen.main.brightness
     var date: Date
     var dogState: DogState
 

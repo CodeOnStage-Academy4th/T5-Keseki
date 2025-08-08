@@ -153,6 +153,9 @@ struct SettingView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black)
+            .onAppear {
+                animateBrightness(to: viewModel.initBrightness, duration: 0.25)
+            }
             .onChange(of: showProgress) { isOn in
                 UIApplication.shared.isIdleTimerDisabled = isOn
                 if isOn {
