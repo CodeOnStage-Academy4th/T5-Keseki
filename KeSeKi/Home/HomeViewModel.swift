@@ -90,7 +90,10 @@ final class HomeViewModel {
         }
     }
 
-    func startRecording(threshold: Float = -20, required: TimeInterval = 2.0) {
+    func startRecording(
+        threshold: Float = Config.shoutingDecibel,
+        required: TimeInterval = Config.shoutingDuration
+    ) {
         guard !isRecording else { return }
         isRecording = true
 

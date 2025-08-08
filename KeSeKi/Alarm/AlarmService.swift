@@ -68,7 +68,7 @@ final class AlarmService {
         // 10초마다 다음 음원으로 변경
         var changeTimer: Timer?
         changeTimer = Timer.scheduledTimer(
-            withTimeInterval: 2.0,
+            withTimeInterval: Config.alertStepInterval,
             repeats: true
         ) { [weak self] _ in
             guard let self = self else { return }
