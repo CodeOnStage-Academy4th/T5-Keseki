@@ -29,7 +29,9 @@ final class HomeViewModel {
     private(set) var state: HomeViewState
     private let decibelManager = DecibelManagerImpl()
     private let lockNotificationManager = LockNotificationManager()
+    private let alarmManager = AlarmService()
     var date: Date
+    var dogState: DogState
     
     /// Decibel
     var currentDB: Float = -60
@@ -41,8 +43,25 @@ final class HomeViewModel {
     init(state: HomeViewState = .setting) {
         self.state = state
         self.date = Date()
+        self.dogState = .step1
     }
-
+    
+    func setAlarm(date: Date? = nil) {
+        self.date = date ?? Date().addingTimeInterval(3)
+        print("알람 예약 : \(self.date)")
+        alarmManager.schedule(date: self.date) { dogState in
+            print("알람 시작")
+            self.startRecording()
+            self.state = .alert
+            self.dogState = dogState
+        }
+        state = .ready
+    }
+    
+    func cancelAlarm() {
+        alarmManager.cancel()
+    }
+    
     func next() {
         state = state.nextState()
     }
@@ -81,6 +100,7 @@ final class HomeViewModel {
                 // TODO: 알람 해제하기 기능 추가
                 print("데시벨 성공! 알람 해제!")
                 guard let self else { return }
+                self.cancelAlarm()
                 self.unlocked = true
                 self.isRecording = false
             },

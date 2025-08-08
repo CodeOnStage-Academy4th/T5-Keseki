@@ -22,7 +22,11 @@ struct HomeView: View {
             case .ready:
                 ReadyView(viewModel)
             case .alert:
-                AlertView(viewModel, date: Date(), dogState: .step1)
+                AlertView(
+                    viewModel,
+                    date: viewModel.date,
+                    dogState: viewModel.dogState
+                )
             }
         }
         .onAppear {
@@ -32,6 +36,6 @@ struct HomeView: View {
 }
 
 #Preview {
-    let viewModel = HomeViewModel(state: .alert)
+    let viewModel = HomeViewModel(state: .ready)
     HomeView(viewModel: viewModel)
 }

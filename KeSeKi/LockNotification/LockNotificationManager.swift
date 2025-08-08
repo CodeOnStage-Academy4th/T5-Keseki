@@ -93,7 +93,7 @@ final class LockNotificationManager: ObservableObject {
 
     func playAlarmSound() {
         guard
-            let url = Bundle.main.url(forResource: "dog1", withExtension: "mp3")
+            let url = Bundle.main.url(forResource: "dog0", withExtension: "mp3")
         else {
             print("음원 파일을 찾을 수 없습니다.")
             return

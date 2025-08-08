@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct SettingView: View {
-    var homeViewModel: HomeViewModel
+    var viewModel: HomeViewModel
     
-    init(_ homeViewModel: HomeViewModel) {
-        self.homeViewModel = homeViewModel
+    init(_ viewModel: HomeViewModel) {
+        self.viewModel = viewModel
     }
     
     var body: some View {
         VStack {
-            Button(action: homeViewModel.next) {
-                Text("알람세팅뷰")
+            Button(action: {
+                viewModel.setAlarm()
+            }) {
+                Text("3초뒤 알람 시작")
             }
         }
     }
