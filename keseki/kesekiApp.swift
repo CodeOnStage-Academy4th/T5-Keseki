@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct KeSeKiApp: App {
+    let homeViewModel: HomeViewModel = .init()
+    @Environment(\.scenePhase) private var scenePhase
+
     var body: some Scene {
         WindowGroup {
-            AlarmView()
+            HomeView(viewModel: homeViewModel)
+                .onChange(of: scenePhase) { oldPhase, newPhase in
+                    homeViewModel.onScenePhaseChanged(newPhase)
+                }
         }
     }
 }

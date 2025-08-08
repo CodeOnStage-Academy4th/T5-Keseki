@@ -29,9 +29,22 @@
 		6984702C2E4620940021E9FF /* KeSeKiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeSeKiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2404F4012E46655200D25E45 /* Exceptions for "KeSeKi" folder in "KeSeKi" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 698470142E4620920021E9FF /* KeSeKi */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		698470172E4620920021E9FF /* KeSeKi */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2404F4012E46655200D25E45 /* Exceptions for "KeSeKi" folder in "KeSeKi" target */,
+			);
 			path = KeSeKi;
 			sourceTree = "<group>";
 		};
@@ -382,6 +395,7 @@
 				DEVELOPMENT_TEAM = P26KYG6RH6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KeSeKi/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 권한 요청";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -411,6 +425,7 @@
 				DEVELOPMENT_TEAM = P26KYG6RH6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KeSeKi/Info.plist;
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "마이크 권한 요청";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
