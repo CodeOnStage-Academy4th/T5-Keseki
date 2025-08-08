@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 import UserNotifications
 
-final class LockNotiManager: ObservableObject {
+final class LockNotificationManager: ObservableObject {
     private var audioPlayer: AVAudioPlayer?
     init() {
         requestNotificationPermission()
@@ -38,7 +38,7 @@ final class LockNotiManager: ObservableObject {
                 if let name = name?.rawValue as String?,
                     name == "com.apple.springboard.lockcomplete"
                 {
-                    let lockManager = Unmanaged<LockNotiManager>
+                    let lockManager = Unmanaged<LockNotificationManager>
                         .fromOpaque(
                             observer!
                         ).takeUnretainedValue()
