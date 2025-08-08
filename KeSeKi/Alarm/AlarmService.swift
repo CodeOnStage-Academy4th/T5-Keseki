@@ -42,6 +42,7 @@ final class AlarmService {
         var currentIndex = 0
         
         func playSound(named name: String) {
+            print("play : \(name)")
             guard
                 let url = Bundle.main.url(
                     forResource: name,
