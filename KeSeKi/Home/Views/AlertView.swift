@@ -67,7 +67,7 @@ struct AlertView: View {
                         .font(.system(size: 40, weight: .heavy))
                         .foregroundStyle(.white.opacity(0.9))
                     Text(timeText)
-                        .font(.system(size: 110, weight: .black, design: .rounded))
+                        .font(.system(size: 92, weight: .black, design: .rounded))
                         .foregroundStyle(.white.opacity(0.9))
                 }
                 

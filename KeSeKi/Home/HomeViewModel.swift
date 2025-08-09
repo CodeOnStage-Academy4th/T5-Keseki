@@ -45,6 +45,7 @@ final class HomeViewModel {
             self.startRecording()
             self.state = .alert
             self.dogState = dogState
+                
         }
         isAlaram = true
     }
